@@ -1,1 +1,0 @@
-# Vegeterian_app
