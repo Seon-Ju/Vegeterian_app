@@ -10,7 +10,7 @@
 
 ## 🏆 Award
 1) [2021 식의약 데이터 활용 경진대회] : Team 베지, Award 창업부문 장려상
-2) [2021-2 홍익대학교 컴퓨터공학과 졸업전시회] : Award 우수작품 장려상<br><br>
+2) [2021-2 홍익대학교 컴퓨터공학과 졸업전시회] : Award 우수작품 선정<br><br>
 
 
 ##  💭  Background
@@ -99,5 +99,17 @@
 [![Video](https://user-images.githubusercontent.com/48851230/143681926-22eb2843-6397-472d-8824-6efcc7a82269.png)](https://youtu.be/EzufkGbLAdg)<br><br>
 
 
+## 🙋‍♂️ Role
+
+| 이름 | 담당 업무 |
+| ------ | ------ |
+| 김선주([@Seon-Ju]) | 식품 검색 로직 구현, DB 통신 구현, UI/UX 디자인 |
+| 이현정([@a956a]) | 채식 단계 분석 로직 구현, 뉴스 크롤링 구현 |
+| 장희주([@gmlwn4009]) | 식품 성분 데이터 정제, DB 구축 |
+
+
 [2021 식의약 데이터 활용 경진대회]: <https://data.mfds.go.kr/blbd/2/34>
 [2021-2 홍익대학교 컴퓨터공학과 졸업전시회]: <https://wwwce.hongik.ac.kr/dept/0401.html?pkid=148900>
+[@Seon-Ju]: <https://github.com/Seon-Ju>
+[@a956a]: <https://github.com/a956a>
+[@gmlwn4009]: <https://github.com/gmlwn4009>
