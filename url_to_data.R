@@ -8,34 +8,34 @@ rows <- 100
 pg <- 1
 ServiceKey <- "kVYcCisbHyjiLHSoknw1iZbhenW6Glc2mM4hfGf1EeIHjXagq6P9g98eMXs6lFGtlksA74tis6Z677Ol%2FjiHrw%3D%3D"
 
-# url »ı¼º
+# url ìƒì„±
 url <- paste0(serviceURL,
               paste0(operaion),
               paste0("?ServiceKey=",ServiceKey),
               paste0("&pageNo=",pg),
               paste0("&numOfRows=",rows))
 
-xmlDocument <- xmlTreeParse(url, useInternalNodes=TRUE, encoding='UTF-8')   #internet ¼³Á¤
+xmlDocument <- xmlTreeParse(url, useInternalNodes=TRUE, encoding='UTF-8')   #internet ì„¤ì •
 rootNode <- xmlRoot(xmlDocument)
 numOfRows<-as.numeric(xpathSApply(rootNode,"//numOfRows",xmlValue))
 totalCount <- as.numeric(xpathSApply(rootNode,"//totalCount",xmlValue))
 loopCount <- round(totalCount/numOfRows,0)
 
-# numOfRows¿Í totalCount·Î ¹İº¹ È¸¼ö °è»ê
+# numOfRowsì™€ totalCountë¡œ ë°˜ë³µ íšŒìˆ˜ ê³„ì‚°
 if(loopCount*numOfRows < totalCount){
   loopCount <- loopCount+1
 }
 
-# data frame ¾ç½Ä ¼³Á¤
+# data frame ì–‘ì‹ ì„¤ì •
 totalData <- data.frame('rnum'=c(0),
                         'prdlstNm'=c('prdlstNm'),
                         'rawmtrl'=c('rawmtrl'),
                         'allergy'=c('allergy'),
                         'prdkind'=c('prdkind'),
-                        'barcode'=c(8888888888888),    #Áö¼öÇ¥±â¹ıÀÌ ¾Æ´Ñ ¼ıÀÚ·Î Ç¥½ÃÇÏ±â À§ÇÔ
+                        'barcode'=c(8888888888888),    #ì§€ìˆ˜í‘œê¸°ë²•ì´ ì•„ë‹Œ ìˆ«ìë¡œ í‘œì‹œí•˜ê¸° ìœ„í•¨
                         'imgurl1'=c('imageurlname'))
 
-# µ¥ÀÌÅÍ¸¦ frame¿¡ ÀúÀå
+# ë°ì´í„°ë¥¼ frameì— ì €ì¥
 for(i in 1:loopCount){
   url <- paste0(serviceURL,
                 operaion,
@@ -47,9 +47,9 @@ for(i in 1:loopCount){
   rootNode <- xmlRoot(doc)
   xmlData <- xmlToDataFrame(nodes=getNodeSet(rootNode,'//item'))
   xmlData2 <- xmlData %>%
-    select(rnum, prdlstNm, rawmtrl, allergy, prdkind, barcode, imgurl1)  #¿øÇÏ´Â µ¥ÀÌÅÍ¸¸ ÃßÃâ
+    select(rnum, prdlstNm, rawmtrl, allergy, prdkind, barcode, imgurl1)  #ì›í•˜ëŠ” ë°ì´í„°ë§Œ ì¶”ì¶œ
   totalData <- rbind(totalData, xmlData2)
 }
 
-# csvÆÄÀÏ »ı¼º
+# csvíŒŒì¼ ìƒì„±
 write.csv(totalData, "allergy.csv", row.names=FALSE)
